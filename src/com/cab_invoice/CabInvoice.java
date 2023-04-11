@@ -2,7 +2,7 @@ package com.cab_invoice;
 
 import java.util.Scanner;
 public class CabInvoice {
-    //Uc2 - Calculate Fare for multiple rides.
+    //Uc3 = Calculate 1.total number of rides 2.total fare 3.Average fare per ride.
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of rides");
@@ -27,7 +27,13 @@ public class CabInvoice {
             count++;
         }
 
+
         totalFare = (totalDistance * costPerKm) + totalTime + (minFare * count);
+
+        double averageFair = totalFare/count;
+
         System.out.println("Total Fare is = " + totalFare);
+        System.out.println("Total Number of Rides = "+count);
+        System.out.println("Average Fare per ride = "+averageFair);
     }
 }
