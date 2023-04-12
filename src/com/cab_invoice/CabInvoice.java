@@ -1,9 +1,11 @@
 package com.cab_invoice;
 
+import java.util.HashMap;
 import java.util.Scanner;
 public class CabInvoice {
-    //Uc3 = Calculate 1.total number of rides 2.total fare 3.Average fare per ride.
+    //Uc4 = User should get list of all rides.
     public static void main(String[] args) {
+        HashMap<Double,Double> map = new HashMap();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of rides");
         double rides = sc.nextDouble();
@@ -22,18 +24,21 @@ public class CabInvoice {
             System.out.println("Enter the time in minutes.");
             double time = sc.nextDouble();
 
+            map.put(distance,time);
+
             totalDistance += distance;
             totalTime += time;
             count++;
         }
 
-
         totalFare = (totalDistance * costPerKm) + totalTime + (minFare * count);
-
         double averageFair = totalFare/count;
 
+        System.out.println("List of All rides (Distance = Time) respectively =");
+        System.out.println(map);
         System.out.println("Total Fare is = " + totalFare);
         System.out.println("Total Number of Rides = "+count);
         System.out.println("Average Fare per ride = "+averageFair);
+
     }
 }
